@@ -264,7 +264,7 @@ public class principal extends javax.swing.JFrame {
                 jTextArea1.setText(original.cadenaLista()+original.busquedaSecuencial(Integer.parseInt(jTextField3.getText())));
             break;
             case "Binaria":
-                jTextArea1.setText(original.cadenaLista() + original.busquedaBinaria(Integer.parseInt(jTextField3.getText()), new CompararCadenas()));
+                jTextArea1.setText(original.cadenaLista() + original.busquedaBinaria(Integer.parseInt(jTextField3.getText()), new CompararCadenas(),1));
             break;
         }
         
@@ -280,7 +280,7 @@ public class principal extends javax.swing.JFrame {
                 jTextArea1.setText(original.cadenaLista()+copia.busquedaSecuencial(Integer.parseInt(jTextField4.getText())));
             break;
             case "Binaria":
-                jTextArea1.setText(original.cadenaLista() + copia.busquedaBinaria(Integer.parseInt(jTextField4.getText()), new CompararCadenas()));
+                jTextArea1.setText(original.cadenaLista() + copia.busquedaBinaria(Integer.parseInt(jTextField4.getText()), new CompararCadenas(),0));
             break;  
         }
     }//GEN-LAST:event_jButton6ActionPerformed

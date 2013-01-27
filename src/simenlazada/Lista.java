@@ -151,7 +151,7 @@ class Lista{
             while((aux != null) && (enc==false)){
                 if(ele.equals(aux.datos)){
                     enc=true;
-                    res = "Encontrado!";
+                    res = "\nEncontrado!";
                 }
 		else{
                     aux=aux.siguiente;
@@ -162,35 +162,58 @@ class Lista{
             return res = res +"\nMenos favorable : "+(tamano) +"\nMás favorable : "+"1"+"\n"+ "Pasadas : "+ i;
 	}
         
-        public String busquedaBinaria(Object ele,Comparar c){
+        public String busquedaBinaria(Object ele,Comparar c, int direccion){
+            /* 
+             * Si direccion es igual a 0, buscamos de derecha a izquierda
+             * Si direccion es igual a 1, buscamos de izquierda a derecha.
+             */
             Nodo aux = PrimerNodo;
             String res = "No encontrado!";
             int izq = 0;
             int der = tamano;
             int cen;
+            int contador = 0;
             int i = 1;
             boolean bandera = false;
-            do{
+            while(izq <= der && bandera == false){
                 aux = PrimerNodo;
                 cen = izq+der/2;
                 while(i<=cen){
                    aux = aux.getnext();
                    i++;
                 }
+                System.out.println(aux.getObject());
                 if(ele.equals(aux.datos)){
+                    contador++;
                     bandera = true;
-                    res = "FOUND";
+                    res = "\n Encontrado";
                 }
                 else{
-                    if(c.Comparar(ele, aux) < 0){
-                        izq = cen+1;
+                    contador++;
+                    //if(c.Comparar(ele, aux) < 0){
+                    int intEle = Integer.parseInt(ele.toString());
+                    int intDatos = Integer.parseInt(aux.datos.toString());
+                    if(direccion == 1){
+                        if(intEle > intDatos){
+                           izq = cen+1;
+                        }
+                        else{
+                            der = cen-1;
+                        }
                     }
-                    else{
-                        der = cen-1;
+                    else if(direccion == 0){
+                        if(intEle < intDatos){
+                           izq = cen+1;
+                        }
+                        else{
+                            der = cen-1;
+                        }
                     }
+                    
+                    
                 }
-            }while(izq <= der && bandera == false);
-            return res;
+            }
+            return res+"\nComparaciones: "+contador;
         }
 
 }
