@@ -182,7 +182,6 @@ class Lista{
                    aux = aux.getnext();
                    i++;
                 }
-                System.out.println(aux.getObject());
                 if(ele.equals(aux.datos)){
                     contador++;
                     bandera = true;
@@ -193,6 +192,7 @@ class Lista{
                     //if(c.Comparar(ele, aux) < 0){
                     int intEle = Integer.parseInt(ele.toString());
                     int intDatos = Integer.parseInt(aux.datos.toString());
+                    System.out.println(aux.datos);
                     if(direccion == 1){
                         if(intEle > intDatos){
                            izq = cen+1;

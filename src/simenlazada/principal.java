@@ -50,6 +50,7 @@ public class principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -122,6 +123,13 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setText("Transformada");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,13 +176,18 @@ public class principal extends javax.swing.JFrame {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 297, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel2))
-                        .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
-                                .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 88, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jComboBox3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jButton6))
+                                .add(18, 18, 18)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createSequentialGroup()
+                                        .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 88, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jComboBox3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(jButton6)))
+                            .add(layout.createSequentialGroup()
+                                .add(83, 83, 83)
+                                .add(jButton7)))
                         .add(54, 54, 54))))
         );
         layout.setVerticalGroup(
@@ -213,7 +226,9 @@ public class principal extends javax.swing.JFrame {
                             .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jComboBox3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButton6)))
+                        .add(jButton6)
+                        .add(43, 43, 43)
+                        .add(jButton7)))
                 .add(4, 4, 4)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton3)
@@ -284,7 +299,15 @@ public class principal extends javax.swing.JFrame {
             break;  
         }
     }//GEN-LAST:event_jButton6ActionPerformed
-    
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        TransformadaCls trans = new TransformadaCls(original);
+        //Nodo aBuscar = trans.modulo(Integer.parseInt(jTextField4.getText()));
+        Nodo aBuscar = trans.getByModule(Integer.parseInt(jTextField4.getText()));
+        if(aBuscar != null) System.out.println(aBuscar.datos);
+        else System.out.println("No se encontro");
+    }//GEN-LAST:event_jButton7ActionPerformed
+        
     private void copiaLista(Lista copy){
         Nodo aux = original.PrimerNodo;
         while(aux != null){
@@ -353,6 +376,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
