@@ -42,6 +42,32 @@ public class TransformadaCls {
             System.out.println(tabla.toString());
             
     }
+    
+    /*****************Metodo de truncamiento**********************/
+    public int truncamiento(int clave){
+        int digitos = 0;
+        int pos = 0;
+        int copia = clave;
+        while(clave > 1){
+            digitos++;
+            copia /=10;
+        }
+        if(digitos ==2){
+            pos = clave +1;
+        }
+        if(digitos == 3){
+            int cent= clave/100;
+            int dec = (clave - cent*100)/10;
+            pos = (cent*10)+dec+1;
+        }
+        if(digitos == 4){
+            int mil= clave/1000;
+            int cent = (clave - mil*1000)/100;
+            int dec = (clave -(mil*1000 + cent * 100))/10;
+            pos = (mil*10)+dec+1;
+        }
+        return pos;
+    }
     public Nodo getByModule(int valor){
         if(!this.current.equals("modulo")) this.modulo();
         int posicion = valor % this.list.getTamano() + 1;
